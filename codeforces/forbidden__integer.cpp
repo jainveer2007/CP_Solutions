@@ -22,23 +22,21 @@ int main() {
             cout<<endl;
         }
         else {
-            if(n == 2 && k >= 2) {
-                cout<<"YES"<<endl;
-                cout<<1<<endl;
-                cout<<2<<endl;
-            }
-            else if(n % 2 == 0 && k >= 2) {
-                cout<<"YES"<<endl;
-                cout<<2<<endl;
-                cout<<2<<" "<<n-2<<endl;
-            }
-            else if(n % 2 == 1 && k >= 3) {
-                cout<<"YES"<<endl;
-                cout<<3<<endl;
-                cout<<2<<" "<<2<<" "<<n-4<<endl;
+            if(k == 1 || (k == 2 && n % 2 == 1)) {
+                cout<<"NO"<<endl;
             }
             else {
-                cout<<"NO"<<endl;
+                cout<<"YES"<<endl;
+                if(n % 2 == 0) {
+                    cout<<n/2<<endl;
+                    for(int i=1;i<=n/2;i++) cout<<2<<" ";
+                    cout<<endl;
+                }
+                else {
+                    cout<<(n-3)/2+1<<endl;
+                    for(int i=1;i<=(n-3)/2;i++) cout<<2<<" ";
+                    cout<<3<<endl;
+                }
             }
         }
     }
