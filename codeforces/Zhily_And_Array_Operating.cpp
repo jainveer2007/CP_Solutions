@@ -9,7 +9,14 @@ int main() {
 
     while(t--) {
 
-        
+        L n;
+        cin>>n;
+
+        vector<L> v(n)
+
+        for(int i=0; i<n; i++) {
+            cin>>v[i]
+        }
     }
 
     return 0;   
