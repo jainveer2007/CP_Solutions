@@ -24,7 +24,7 @@ int main() {
             count = 1;
             n = n-odd;
             count += (n + even - 1)/even;
-        }
+        }       
 
         cout<<count<<endl;
     }
