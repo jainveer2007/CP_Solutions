@@ -5,48 +5,27 @@ using namespace std;
 int main() {
 
     L t;
-    cin >> t;
+    cin>>t;
 
     while(t--) {
 
         L n;
-        cin >> n;
+        cin>>n;
 
-        L arr[n];
+        vector<L> a(n);
 
-        for(int i = 0; i < n; i++) {
-            cin>>arr[i];
-        }
+        for(int i=0;i<n;i++) cin>>a[i];
 
-        bool valid = true;
+        int flag=0;
 
-        for(int i = 0; i < n - 1; i++) {
-
-            L g = __gcd(arr[i], arr[i + 1]);
-
-            if(g < 2) {
-                cout << "NO" << endl;
-                valid = false;
-                break;
+        for(int i=0;i<n;i++) {
+            for(int j=i+1;j<n;j++) {
+                if(__gcd(a[i],a[j])<=2) flag=1;
             }
         }
 
-        if(valid) {
-
-            L totalGcd = arr[0];
-
-            for(int i = 1; i < n; i++) {
-
-                totalGcd = __gcd(totalGcd, arr[i]);
-            }
-
-            if(totalGcd > n) {
-                cout<<"YES"<<endl;
-            } 
-            else {
-                cout<<"NO"<<endl;
-            }
-        }
+        if(flag==0) cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
     }
 
     return 0;

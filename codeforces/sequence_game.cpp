@@ -1,45 +1,37 @@
-    #include<bits/stdc++.h>
-    using namespace std;
+#include<bits/stdc++.h>
+using namespace std;
+#define L long long
 
-    vector<int> solve() {
+int main() {
 
-        int n;
-        cin >> n;
+    L t;
+    cin>>t;
 
-        int arr[n];
+    while(t--) {
 
-        for(int i=0; i<n; i++) {
-            cin >> arr[i];
-        }
+        L n;
+        cin>>n;
 
-        vector<int> vec;
-        vec.push_back(arr[0]);
+        vector<L> b(n),a;
 
-        for(int i=1; i<n; i++) {
+        for(int i=0;i<n;i++) cin>>b[i];
 
-            if(arr[i] >= arr[i-1]) {
-                vec.push_back(arr[i]);
+        a.push_back(b[0]);
+
+        for(int i=1;i<n;i++) {
+            if(b[i]>=b[i-1]) a.push_back(b[i]);
+            else {
+                a.push_back(b[i]);
+                a.push_back(b[i]);
             }
         }
 
-        return vec;
+        cout<<a.size()<<endl;
+
+        for(auto it:a) cout<<it<<" ";
+
+        cout<<endl;
     }
 
-    int main() {
-
-        int t;
-        cin >> t;
-
-        while(t--) {
-
-            vector<int> ans = solve();
-
-            for(int i = 0; i < ans.size(); i++) {
-                cout << ans[i] << " ";
-            }
-
-            cout << endl;
-        }
-
-        return 0;
-    }
+    return 0;
+}   
