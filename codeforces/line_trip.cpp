@@ -1,58 +1,38 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-int search(int x, int arr[], int n, int V) {
-
-    int fuel = V;  
-    int maxFuelNeeded = 0;
-
-    for(int i = 0; i <= x; i++) {
-        bool isStation = false;
-
-        for(int A = 0; A < n; A++) {
-
-            if(i == arr[A]) {
-                isStation = true;
-                break;
-            }
-        } 
-
-        if (isStation) {
-            fuel = V; 
-        }
-        else {
-            fuel--; 
-        }
-
-        int fuelNeededHere = V - fuel;
-
-        if (fuelNeededHere > maxFuelNeeded) {
-            maxFuelNeeded = fuelNeededHere;
-        }
-    }
-    return maxFuelNeeded; 
-}
+#define L long long
 
 int main() {
 
-    int t;
-    cin >> t;
+    L t;
+    cin>>t;
 
     while(t--) {
 
-        int n, x;
-        cin >> n >> x;
-        int arr[n];
+        L n,x;
+        cin>>n>>x;
 
-        for(int a = 0; a < n; a++) {
-            cin >> arr[a];
+        vector<L> points_arr;
+        points_arr.push_back(0);
+
+        for(int i=0;i<n;i++) {
+            L point;
+            cin>>point;
+            points_arr.push_back(point);
         }
 
-        int V;
-        cin >> V;
+        points_arr.push_back(x);
+        n=points_arr.size();
 
-        int maxFuelRequired = search(x, arr, n, V);
-        cout << maxFuelRequired << endl;
+        L max_distance_between_points=INT_MIN;
+
+        for(int i=1;i<n;i++) {
+            if(i==n-1) max_distance_between_points=max(max_distance_between_points,2*(points_arr[i]-points_arr[i-1]));
+            else max_distance_between_points=max(max_distance_between_points,points_arr[i]-points_arr[i-1]);
+        }
+
+        cout<<max_distance_between_points<<endl;
     }
+
     return 0;
 }
