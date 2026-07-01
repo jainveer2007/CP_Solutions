@@ -19,7 +19,9 @@ int main() {
         a.push_back(b[0]);
 
         for(int i=1;i<n;i++) {
+
             if(b[i]>=b[i-1]) a.push_back(b[i]);
+            
             else {
                 a.push_back(b[i]);
                 a.push_back(b[i]);
