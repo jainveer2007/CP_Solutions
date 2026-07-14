@@ -18,6 +18,12 @@ int main() {
             cin>>v[i];
         }
 
+        L ans = v[0];
         
+        for(int i=1; i<n; i++) {
+            ans &= v[i];
+        }
+
+        cout<<ans<<endl;
     }
 }
