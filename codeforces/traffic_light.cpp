@@ -18,19 +18,25 @@ int main() {
         string s;
         cin>>s;
 
-        L count = 1;
+        if(c == 'g') {
+            cout<<0<<endl;
+            continue;
+        }
+
+        string S = s+s;
+
         L maxi = 0;
+        L nextGreen = -1;
 
-        for(int i=0; i<n; i++) {
+        for(L i=2*n-1; i>=0; i--) {
 
-            if(s[i] == c) {
-                while(s[i] != 'g') {
-
-                    count++;
-                }
+            if(S[i] == 'g') {
+                nextGreen = i;
             }
 
-            maxi = max(maxi, count);
+            if(i<n && S[i] == c) {
+                maxi = max(maxi, nextGreen-i);
+            }
         }
 
         cout<<maxi<<endl;
