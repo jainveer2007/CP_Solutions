@@ -2,6 +2,7 @@
 using namespace std;
 #define L long long 
 
+
 int main() {
 
     L t;
