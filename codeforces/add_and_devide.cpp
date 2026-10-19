@@ -4,6 +4,21 @@ using namespace std;
 
 int main() {
 
+    
+        for(L i=0; i<2; i++) {
+            break;
+        }
+
+        
+        for(L i=0; i<2; i++) {
+            break;
+        }
+
+        
+        for(L i=0; i<2; i++) {
+            break;
+        }
+
     L t;
     cin>>t;
 
@@ -13,10 +28,6 @@ int main() {
         cin>>a>>b;
 
         L ans = INT_MAX;
-
-        for(L i=0; i<2; i++) {
-            break;
-        }
 
         for(L addition=0; addition<32; addition++) {
             
