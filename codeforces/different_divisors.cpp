@@ -11,7 +11,8 @@ int main() {
         bool is_prime = true;
 
         for(L j=2; j*j<=i; j++) {
-            if(i%j==0) {
+
+            if(i%j == 0) {
                 is_prime = false;
                 break;
             }
@@ -33,6 +34,7 @@ int main() {
         L p = -1;
 
         for(L i=0; i<primes.size(); i++) {
+
             if(primes[i]>=1+d) {
                 p = primes[i];
                 break;
@@ -42,7 +44,8 @@ int main() {
         L q = -1;
 
         for(L i=0; i<primes.size(); i++) {
-            if(primes[i]>=p+d) {
+                
+            if(primes[i] >= p+d) {
                 q = primes[i];
                 break;
             }
