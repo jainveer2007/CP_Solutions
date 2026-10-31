@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define L long long 
+#define L long long
 
-L main() {
+int main() {
 
     L t;
     cin>>t;
@@ -15,33 +15,40 @@ L main() {
         string p,q;
         cin>>p>>q;
 
-        for(int i=0; i<m; i++) {
-
-            bool found = false;
-
-            for(int j=0; j<n; j++) {
-
-                if(p[j] == q[i]) {
-                    p[j] = '#';
-                    found = true;
-                    break;
-                }
-            }
-
-            if(!found) {
-                break;
-            }
-        }
-
-        string ans = "";
+        L freq[26] = {0};
 
         for(int i=0; i<n; i++) {
-            if(p[i] != '#') {
-                ans += p[i];
+            freq[p[i]-'a']++;
+        }
+
+        for(int i=0; i<m; i++) {
+            freq[q[i]-'a']--;
+        }
+
+        bool flag = true;
+
+        for(int i=0; i<26; i++) {
+
+            if(freq[i] < 0) {
+                flag = false;
             }
         }
 
-        if(ans == "six") {
+        if(freq['s'-'a'] != 1 || freq['i'-'a'] != 1 || freq['x'-'a'] != 1) {
+            flag = false;
+        }
+
+        for(int i=0; i<26; i++) {
+
+            if(i != 's'-'a' && i != 'i'-'a' && i != 'x'-'a') {
+
+                if(freq[i] != 0) {
+                    flag = false;
+                }
+            }
+        }
+
+        if(flag) {
             cout<<"YES"<<endl;
         }
         else {
